@@ -1,5 +1,5 @@
 # GOX
-> Write HTML in pure Go
+> Write reusable HTML in pure Go
 ```go
 package app
 
