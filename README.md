@@ -28,6 +28,11 @@ func Page() string {
 ## Main reason to use GOX
 > If you love Go, as I am, you love power && simplicity, then GOX is just for you.
 
+
+<br>
+
+**Feel free to test, submit issues, etc...**
+
 <br>
 
 ## Features
