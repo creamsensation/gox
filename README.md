@@ -53,10 +53,10 @@ Library should contains most of elements.<br>
 Html(
   Head(
     Title()
-  )
+  ),
   Body(
     Div()
-  )
+  ),
 )
 ```
 
@@ -67,8 +67,8 @@ If you need to add attribute to element. You can create your own attributes with
 Library should contains most attributes.<br>
 ```go
 Button(
-  Type("submit")
-  CustomData("track", "submit-button")
+  Type("submit"),
+  CustomData("track", "submit-button"),
 )
 ```
 
@@ -190,7 +190,7 @@ func (p CustomPlugin) Node() gox.Node {
 Render(
   Html(
     Body(
-      CustomPlugin{ Value: "example" }
+      CustomPlugin{ Value: "example" },
     )
   ) 
 )
