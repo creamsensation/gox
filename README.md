@@ -80,10 +80,10 @@ Button(
 <br>
 
 ### Shared
-Some elements and attributes have same names, here comes shared nodes<br>
-All shared nodes have default node type, which can be modified with modifier node<br>
+Some elements and attributes have same names, here comes shared nodes.<br>
+All shared nodes have default node type, which can be modified with modifier node.<br>
 Because of sharing, you need to use node for content, instead of writing simple string argument.<br>
-Shared nodes are: cite, data, form, label, slot, span, style, title<br>
+Shared nodes are: cite, data, form, label, slot, span, style, title.<br>
 ```go
 Label(Text("E-mail"))
 Style(Element(), Raw("body{background:red;}"))
@@ -101,7 +101,7 @@ Raw("<div>raw custom</div>")
 <br>
 
 ### Text
-Only purpose is to write text content<br>
+Only purpose is to write text content.<br>
 ```go
 Div(Text("Example"))
 ```
@@ -109,7 +109,7 @@ Div(Text("Example"))
 <br>
 
 ### Fragment
-The fragment has purpose to group nodes<br>
+The fragment has purpose to group nodes.<br>
 ```go
 Fragment(
   Div(),
@@ -121,7 +121,7 @@ Fragment(
 <br>
 
 ### Modifiers
-When you use shared nodes, sometimes you need to change node type, then you have to use modifiers<br>
+When you use shared nodes, sometimes you need to change node type, then you have to use modifiers.<br>
 ```go
 Label(Attribute(), Text("example label"))
 Style(Element(), Raw(".text{color:red;}"))
@@ -168,16 +168,16 @@ Range(someSlice, func(item int) Node {
 
 ### Factories
 #### Custom element
-Create custom reusable element<br>
+Create custom reusable element.<br>
 ```go
 SomeCustomElement := CreateElement("x-custom")
 Render(SomeCustomElement(Text("example content")))
 ```
 #### Custom attribute
-Create custom reusable attribute<br>
+Create custom reusable attribute.<br>
 ```go
 SomeCustomAttribute := CreateAttribute[string]("x-custom")
-Render(Div(Text("example content")))
+Render(Div(SomeCustomAttribute("custom attribute conttent"), Text("example content")))
 ```
 <br>
 
