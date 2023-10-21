@@ -160,7 +160,7 @@ If(someCondition, Div(Text("render if condition is true")))
 ```go
 someSlice := []int{1,2,3}
 
-For(someSlice, func(item int) Node {
+Range(someSlice, func(item int) Node {
   return Div(Text(item))
 })
 ```
