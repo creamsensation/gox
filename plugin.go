@@ -2,8 +2,6 @@ package gox
 
 import (
 	"strings"
-
-	"dd"
 )
 
 // Clsx plugin
@@ -20,7 +18,6 @@ func (c Clsx) join() string {
 		if !use {
 			continue
 		}
-		dd.Print(classes)
 		result = append(result, classes)
 	}
 	return strings.Join(result, " ")

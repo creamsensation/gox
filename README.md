@@ -75,6 +75,9 @@ Button(
   Type("submit"),
   CustomData("track", "submit-button"),
 )
+
+// data-*
+CustomData("*", "...")
 ```
 
 <br>

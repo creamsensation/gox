@@ -1,4 +1,4 @@
-module gox
+module "github.com/creamsensation/gox"
 
 go 1.21
 
