@@ -1,6 +1,10 @@
 package gox
 
 const (
+	doctypeHtml = "<!DOCTYPE html>"
+)
+
+const (
 	elementA          = "a"
 	elementAbbr       = "abbr"
 	elementAddress    = "address"

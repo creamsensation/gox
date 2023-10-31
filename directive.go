@@ -1,14 +1,18 @@
 package gox
 
-func Range[T any](s []T, fn func(item T) Node) Node {
-	children := make([]node, len(s))
+func Range[T any](s []T, fn func(item T, index int) Node) Node {
+	children := make([]node, 0)
 	for i, val := range s {
-		item := fn(val)
+		item := fn(val, i)
 		n, ok := item.(node)
 		if !ok {
 			continue
 		}
-		children[i] = n
+		if n.nodeType == nodeFragment {
+			children = append(children, n.children...)
+			continue
+		}
+		children = append(children, n)
 	}
 	return node{
 		nodeType: nodeFragment,

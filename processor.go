@@ -29,6 +29,14 @@ func processNodes(nodes []Node) ([]node, []node) {
 		case nodeAttribute:
 			attributes = append(attributes, n)
 		case nodeElement, nodeText, nodeRaw:
+			if n.name == elementHtml {
+				children = append(
+					children, node{
+						nodeType: nodeRaw,
+						value:    doctypeHtml,
+					},
+				)
+			}
 			children = append(children, n)
 		}
 	}
