@@ -11,6 +11,11 @@ type nodeRenderer struct {
 	node
 }
 
+const (
+	openBracket  = "{"
+	closeBracket = "}"
+)
+
 func (n nodeRenderer) render() string {
 	switch n.nodeType {
 	case nodeFragment:
@@ -52,7 +57,11 @@ func (n nodeRenderer) renderAttribute() string {
 	if n.value == nil {
 		return n.name
 	}
-	return fmt.Sprintf(`%s="%v"`, n.name, n.value)
+	value := fmt.Sprintf("%v", n.value)
+	if strings.HasPrefix(value, openBracket) && strings.HasSuffix(value, closeBracket) {
+		return fmt.Sprintf(`%s='%s'`, n.name, value)
+	}
+	return fmt.Sprintf(`%s="%s"`, n.name, value)
 }
 
 func (n nodeRenderer) renderAttributes() string {

@@ -2,11 +2,27 @@ package gox
 
 import (
 	"testing"
-
+	
 	"github.com/stretchr/testify/assert"
 )
 
 func TestUtil(t *testing.T) {
+	t.Run(
+		"get string nodes values", func(t *testing.T) {
+			v1 := "test1"
+			v2 := "test2"
+			nodes := []node{
+				Div().(node),
+				Text(v1).(node),
+				Id().(node),
+				Raw(v2).(node),
+			}
+			textValues := getStringNodesValues(nodes...)
+			assert.Equal(t, 2, len(textValues))
+			assert.Equal(t, v1, textValues[0])
+			assert.Equal(t, v2, textValues[1])
+		},
+	)
 	t.Run(
 		"find node with modifier type", func(t *testing.T) {
 			nodes := []Node{

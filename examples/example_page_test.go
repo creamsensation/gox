@@ -2,10 +2,10 @@ package examples
 
 import (
 	"testing"
-
+	
 	"github.com/stretchr/testify/assert"
-
-	. "gox"
+	
+	. "github.com/creamsensation/gox"
 )
 
 func TestPageExample(t *testing.T) {
@@ -20,6 +20,7 @@ func TestPageExample(t *testing.T) {
 				t,
 				Minify(
 					`
+				<!DOCTYPE html>
 				<html lang="en">
 					<head>
 						<title>Example page</title>

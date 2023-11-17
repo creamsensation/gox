@@ -76,6 +76,7 @@ const (
 	elementOutput     = "output"
 	elementP          = "p"
 	elementParam      = "param"
+	elementPath       = "path"
 	elementPicture    = "picture"
 	elementPortal     = "portal"
 	elementPre        = "pre"
@@ -109,6 +110,7 @@ const (
 	elementTime       = "time"
 	elementTrack      = "track"
 	elementU          = "u"
+	elementUse        = "use"
 	elementVar        = "var"
 	elementVideo      = "video"
 	elementWbr        = "wbr"
@@ -118,7 +120,7 @@ const (
 var (
 	voidElements = []string{
 		elementArea, elementBase, elementBr, elementCol, elementEmbed, elementHr, elementImg, elementInput, elementLink,
-		elementMeta, elementParam, elementSource, elementTrack, elementWbr,
+		elementMeta, elementParam, elementPath, elementSource, elementTrack, elementWbr,
 	}
 )
 
@@ -402,6 +404,10 @@ func Param(nodes ...Node) Node {
 	return createElement(elementParam, nodes...)
 }
 
+func Path(nodes ...Node) Node {
+	return createElement(elementPath, nodes...)
+}
+
 func Picture(nodes ...Node) Node {
 	return createElement(elementPicture, nodes...)
 }
@@ -483,7 +489,7 @@ func Sup(nodes ...Node) Node {
 }
 
 func Svg(nodes ...Node) Node {
-	return createElement(elementSvg, nodes...)
+	return createElement(elementSvg, Xmlns("http://www.w3.org/2000/svg"), Fragment(nodes...))
 }
 
 func Table(nodes ...Node) Node {
@@ -528,6 +534,10 @@ func Time(nodes ...Node) Node {
 
 func U(nodes ...Node) Node {
 	return createElement(elementU, nodes...)
+}
+
+func Use(nodes ...Node) Node {
+	return createElement(elementUse, nodes...)
 }
 
 func Var(nodes ...Node) Node {

@@ -26,16 +26,10 @@ func If(condition bool, nodes ...Node) Node {
 			nodeType: nodeFragment,
 		}
 	}
-	children := make([]node, len(nodes))
-	for i, item := range nodes {
-		n, ok := item.(node)
-		if !ok {
-			continue
-		}
-		children[i] = n
-	}
+	attributes, children := processNodes(nodes)
 	return node{
-		nodeType: nodeFragment,
-		children: children,
+		nodeType:   nodeFragment,
+		children:   children,
+		attributes: attributes,
 	}
 }

@@ -35,3 +35,17 @@ func removeNodesWithType(nodeType int, nodes ...Node) []Node {
 	}
 	return result
 }
+
+func getStringNodesValues(nodes ...node) []string {
+	result := make([]string, 0)
+	for _, item := range nodes {
+		switch item.nodeType {
+		case nodeText, nodeRaw:
+			switch n := item.value.(type) {
+			case string:
+				result = append(result, n)
+			}
+		}
+	}
+	return result
+}

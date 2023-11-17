@@ -3,7 +3,7 @@ package gox
 import (
 	"fmt"
 	"testing"
-
+	
 	"github.com/stretchr/testify/assert"
 )
 
@@ -13,7 +13,7 @@ func TestDirectiveRange(t *testing.T) {
 		"range", func(t *testing.T) {
 			bodyEl := Body(
 				Range(
-					data, func(item int) Node {
+					data, func(item int, _ int) Node {
 						return Span(Text(fmt.Sprintf("%d", item)))
 					},
 				),

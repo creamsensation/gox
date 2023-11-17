@@ -2,7 +2,7 @@ package gox
 
 import (
 	"strings"
-
+	
 	"golang.org/x/exp/constraints"
 )
 
@@ -35,6 +35,7 @@ const (
 	attributeCrossOrigin     = "crossorigin"
 	attributeCsp             = "csp"
 	attributeCustomData      = "data"
+	attributeD               = "d"
 	attributeDateTime        = "datetime"
 	attributeDecoding        = "decoding"
 	attributeDefault         = "default"
@@ -115,8 +116,10 @@ const (
 	attributeType            = "type"
 	attributeUseMap          = "usemap"
 	attributeValue           = "value"
+	attributeViewBox         = "viewBox"
 	attributeWidth           = "width"
 	attributeWrap            = "wrap"
+	attributeXmlns           = "xmlns"
 )
 
 func Accept(values ...string) Node {
@@ -229,6 +232,10 @@ func Csp(values ...string) Node {
 
 func CustomData(name string, values ...any) Node {
 	return createAttribute(attributeCustomData+"-"+name, values...)
+}
+
+func D(values ...string) Node {
+	return createAttribute(attributeD, values...)
 }
 
 func DateTime(values ...string) Node {
@@ -551,10 +558,18 @@ func Value(values ...any) Node {
 	return createAttribute(attributeValue, values...)
 }
 
+func ViewBox(values ...string) Node {
+	return createAttribute(attributeViewBox, values...)
+}
+
 func Width[T constraints.Ordered](values ...T) Node {
 	return createAttribute(attributeWidth, values...)
 }
 
 func Wrap(values ...string) Node {
 	return createAttribute(attributeWrap, values...)
+}
+
+func Xmlns(values ...string) Node {
+	return createAttribute(attributeXmlns, values...)
 }

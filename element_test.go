@@ -2,7 +2,7 @@ package gox
 
 import (
 	"testing"
-
+	
 	"github.com/stretchr/testify/assert"
 )
 
@@ -25,7 +25,6 @@ func TestRenderElements(t *testing.T) {
 		"render page", func(t *testing.T) {
 			page :=
 				Fragment(
-					Doctype(),
 					Html(
 						Head(),
 						Body(),

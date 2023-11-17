@@ -1,7 +1,7 @@
 package gox
 
 import (
-	"fmt"
+	"strings"
 )
 
 type Node interface {
@@ -62,11 +62,29 @@ func createShared(name string, nodeType int, nodes ...Node) Node {
 		if len(nodes) == 0 {
 			return createAttribute[any](name)
 		}
-		n, ok := nodes[0].(node)
-		if !ok {
+		values := make([]string, 0)
+		for _, item := range nodes {
+			n, ok := item.(node)
+			if !ok {
+				continue
+			}
+			switch n.nodeType {
+			case nodeFragment:
+				values = append(values, getStringNodesValues(n.children...)...)
+			default:
+				switch v := n.value.(type) {
+				case string:
+					values = append(values, v)
+				}
+			}
+		}
+		if len(values) == 0 {
 			return createAttribute[any](name)
 		}
-		return createAttribute(name, fmt.Sprintf("%v", n.value))
+		if len(values) == 1 {
+			return createAttribute(name, values[0])
+		}
+		return createAttribute(name, strings.Join(values, " "))
 	}
 	return createElement(name, nodes...)
 }

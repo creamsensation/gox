@@ -1,6 +1,6 @@
 package examples
 
-import . "gox"
+import . "github.com/creamsensation/gox"
 
 func createPage(lang, title string, children ...Node) Node {
 	page :=
