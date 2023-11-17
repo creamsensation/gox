@@ -25,17 +25,14 @@ const (
 	attributeCharSet         = "charset"
 	attributeChecked         = "checked"
 	attributeClass           = "class"
-	attributeColor           = "color"
 	attributeCols            = "cols"
 	attributeColSpan         = "colspan"
 	attributeContent         = "content"
 	attributeContentEditable = "contenteditable"
 	attributeControls        = "controls"
 	attributeCoords          = "coords"
-	attributeCrossOrigin     = "crossorigin"
 	attributeCsp             = "csp"
 	attributeCustomData      = "data"
-	attributeD               = "d"
 	attributeDateTime        = "datetime"
 	attributeDecoding        = "decoding"
 	attributeDefault         = "default"
@@ -83,7 +80,6 @@ const (
 	attributeNoValidate      = "novalidate"
 	attributeOpen            = "open"
 	attributeOptimum         = "optimum"
-	attributePattern         = "pattern"
 	attributePing            = "ping"
 	attributePlaceholder     = "placeholder"
 	attributePlaysInline     = "playsinline"
@@ -116,10 +112,8 @@ const (
 	attributeType            = "type"
 	attributeUseMap          = "usemap"
 	attributeValue           = "value"
-	attributeViewBox         = "viewBox"
 	attributeWidth           = "width"
 	attributeWrap            = "wrap"
-	attributeXmlns           = "xmlns"
 )
 
 func Accept(values ...string) Node {
@@ -194,10 +188,6 @@ func Class(values ...string) Node {
 	return createAttribute(attributeClass, strings.Join(values, " "))
 }
 
-func Color(values ...string) Node {
-	return createAttribute(attributeColor, values...)
-}
-
 func Cols(values ...int) Node {
 	return createAttribute(attributeCols, values...)
 }
@@ -222,20 +212,12 @@ func Coords(values ...string) Node {
 	return createAttribute(attributeCoords, strings.Join(values, ","))
 }
 
-func CrossOrigin(values ...string) Node {
-	return createAttribute(attributeCrossOrigin, values...)
-}
-
 func Csp(values ...string) Node {
 	return createAttribute(attributeCsp, values...)
 }
 
 func CustomData(name string, values ...any) Node {
 	return createAttribute(attributeCustomData+"-"+name, values...)
-}
-
-func D(values ...string) Node {
-	return createAttribute(attributeD, values...)
 }
 
 func DateTime(values ...string) Node {
@@ -426,10 +408,6 @@ func Optimum[T constraints.Ordered](values ...T) Node {
 	return createAttribute(attributeOptimum, values...)
 }
 
-func Pattern(values ...string) Node {
-	return createAttribute(attributePattern, values...)
-}
-
 func Ping(values ...string) Node {
 	return createAttribute(attributePing, values...)
 }
@@ -558,18 +536,10 @@ func Value(values ...any) Node {
 	return createAttribute(attributeValue, values...)
 }
 
-func ViewBox(values ...string) Node {
-	return createAttribute(attributeViewBox, values...)
-}
-
 func Width[T constraints.Ordered](values ...T) Node {
 	return createAttribute(attributeWidth, values...)
 }
 
 func Wrap(values ...string) Node {
 	return createAttribute(attributeWrap, values...)
-}
-
-func Xmlns(values ...string) Node {
-	return createAttribute(attributeXmlns, values...)
 }

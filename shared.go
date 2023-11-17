@@ -1,22 +1,35 @@
 package gox
 
 const (
-	sharedCite  = "cite"
-	sharedData  = "data"
-	sharedForm  = "form"
-	sharedLabel = "label"
-	sharedSlot  = "slot"
-	sharedSpan  = "span"
-	sharedStyle = "style"
-	sharedTitle = "title"
+	sharedCite     = "cite"
+	sharedClipPath = "clipPath"
+	sharedData     = "data"
+	sharedFilter   = "filter"
+	sharedForm     = "form"
+	sharedLabel    = "label"
+	sharedMask     = "mask"
+	sharedPath     = "path"
+	sharedPattern  = "pattern"
+	sharedSlot     = "slot"
+	sharedSpan     = "span"
+	sharedStyle    = "style"
+	sharedTitle    = "title"
 )
 
 func Cite(nodes ...Node) Node {
 	return createShared(sharedCite, nodeElement, nodes...)
 }
 
+func ClipPath(nodes ...Node) Node {
+	return createShared(sharedClipPath, nodeAttribute, nodes...)
+}
+
 func Data(nodes ...Node) Node {
 	return createShared(sharedData, nodeElement, nodes...)
+}
+
+func Filter(nodes ...Node) Node {
+	return createShared(sharedFilter, nodeAttribute, nodes...)
 }
 
 func Form(nodes ...Node) Node {
@@ -25,6 +38,18 @@ func Form(nodes ...Node) Node {
 
 func Label(nodes ...Node) Node {
 	return createShared(sharedLabel, nodeElement, nodes...)
+}
+
+func Mask(nodes ...Node) Node {
+	return createShared(sharedMask, nodeElement, nodes...)
+}
+
+func Path(nodes ...Node) Node {
+	return createShared(sharedPath, nodeElement, nodes...)
+}
+
+func Pattern(nodes ...Node) Node {
+	return createShared(sharedPattern, nodeElement, nodes...)
 }
 
 func Slot(nodes ...Node) Node {
