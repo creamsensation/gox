@@ -1,5 +1,7 @@
 package gox
 
+import "strings"
+
 const (
 	attributeAccumulate                = "accumulate"
 	attributeAdditive                  = "additive"
@@ -768,7 +770,7 @@ func VectorEffect(values ...string) Node {
 }
 
 func ViewBox(values ...string) Node {
-	return createAttribute(attributeViewBox, values...)
+	return createAttribute(attributeViewBox, strings.Join(values, " "))
 }
 
 func Visibility(values ...string) Node {
