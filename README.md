@@ -26,7 +26,7 @@ func Page() string {
 <br>
 
 ## Main reason to use GOX
-> If you love Go, as I am, you love power && simplicity, then GOX is just for you.
+> If you love Go, as I do, you love power && simplicity, then GOX is just for you.
 
 
 <br>
