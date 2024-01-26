@@ -16,6 +16,7 @@ const (
 	attributeAsync           = "async"
 	attributeAutoCapitalize  = "autocapitalize"
 	attributeAutoComplete    = "autocomplete"
+	attributeAutoFocus       = "autofocus"
 	attributeAutoPlay        = "autoplay"
 	attributeBackground      = "background"
 	attributeBgColor         = "bgcolor"
@@ -61,7 +62,11 @@ const (
 	attributeIntegrity       = "integrity"
 	attributeInputMode       = "inputmode"
 	attributeIsMap           = "ismap"
+	attributeItemId          = "itemid"
 	attributeItemProp        = "itemprop"
+	attributeItemRef         = "itemref"
+	attributeItemScope       = "itemscope"
+	attributeItemType        = "itemtype"
 	attributeKind            = "kind"
 	attributeLang            = "lang"
 	attributeLoading         = "loading"
@@ -77,6 +82,7 @@ const (
 	attributeMultiple        = "multiple"
 	attributeMuted           = "muted"
 	attributeName            = "name"
+	attributeNonce           = "nonce"
 	attributeNoValidate      = "novalidate"
 	attributeOpen            = "open"
 	attributeOptimum         = "optimum"
@@ -150,6 +156,10 @@ func AutoCapitalize(values ...bool) Node {
 
 func AutoComplete(values ...bool) Node {
 	return createAttribute(attributeAutoComplete, values...)
+}
+
+func AutoFocus(values ...bool) Node {
+	return createAttribute(attributeAutoFocus, values...)
 }
 
 func AutoPlay(values ...bool) Node {
@@ -332,8 +342,24 @@ func IsMap(values ...bool) Node {
 	return createAttribute(attributeIsMap, values...)
 }
 
+func ItemId(values ...string) Node {
+	return createAttribute(attributeItemId, values...)
+}
+
 func ItemProp(values ...string) Node {
 	return createAttribute(attributeItemProp, values...)
+}
+
+func ItemRef(values ...string) Node {
+	return createAttribute(attributeItemRef, values...)
+}
+
+func ItemScope(values ...string) Node {
+	return createAttribute(attributeItemScope, values...)
+}
+
+func ItemType(values ...string) Node {
+	return createAttribute(attributeItemType, values...)
 }
 
 func Kind(values ...string) Node {
@@ -394,6 +420,10 @@ func Muted(values ...bool) Node {
 
 func Name(values ...string) Node {
 	return createAttribute(attributeName, values...)
+}
+
+func Nonce(values ...string) Node {
+	return createAttribute(attributeNonce, values...)
 }
 
 func NoValidate(values ...bool) Node {
