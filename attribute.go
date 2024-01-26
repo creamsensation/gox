@@ -118,6 +118,7 @@ const (
 	attributeType            = "type"
 	attributeUseMap          = "usemap"
 	attributeValue           = "value"
+	attributeVersion         = "version"
 	attributeWidth           = "width"
 	attributeWrap            = "wrap"
 )
@@ -564,6 +565,10 @@ func UseMap(values ...string) Node {
 
 func Value(values ...any) Node {
 	return createAttribute(attributeValue, values...)
+}
+
+func Version(values ...string) Node {
+	return createAttribute(attributeVersion, values...)
 }
 
 func Width[T constraints.Ordered](values ...T) Node {

@@ -605,11 +605,11 @@ func Rotate(values ...string) Node {
 	return createAttribute(attributeRotate, values...)
 }
 
-func Rx(values ...string) Node {
+func Rx(values ...float64) Node {
 	return createAttribute(attributeRx, values...)
 }
 
-func Ry(values ...string) Node {
+func Ry(values ...float64) Node {
 	return createAttribute(attributeRy, values...)
 }
 

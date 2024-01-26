@@ -11,3 +11,9 @@ func CreateElement(name string) func(nodes ...Node) Node {
 		return createElement(name, nodes...)
 	}
 }
+
+func CreateShared(name string) func(nodes ...Node) Node {
+	return func(nodes ...Node) Node {
+		return createShared(name, nodeElement, nodes...)
+	}
+}
