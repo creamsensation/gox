@@ -9,10 +9,19 @@ import (
 type Clsx map[string]bool
 
 func (c Clsx) Node() Node {
-	return Class(c.join())
+	return Class(c.String())
 }
 
-func (c Clsx) join() string {
+func (c Clsx) Merge(items ...Clsx) Clsx {
+	for _, item := range items {
+		for k, v := range item {
+			c[k] = v
+		}
+	}
+	return c
+}
+
+func (c Clsx) String() string {
 	result := make([]string, 0)
 	for classes, use := range c {
 		if !use {
